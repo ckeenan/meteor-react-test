@@ -6,12 +6,12 @@ TXList = React.createClass({
   testTx: function() {
 
     var hash = web3.eth.sendTransaction({ from: web3.eth.coinbase, to: web3.eth.coinbase, value: 1000 });
-    console.log('hash', hash);
     TXActions.add({hash: hash, testData: 'testing'});
 
   },
   componentDidMount() {
-    web3.setProvider(new web3.providers.HttpProvider('http://localhost:8084'));
+    web3.setProvider(new web3.providers.HttpProvider(this.props.provider));
+    TXActions.connect({provider: this.props.provider}); 
   },
   render() {
     return (
