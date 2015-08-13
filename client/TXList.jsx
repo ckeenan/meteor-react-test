@@ -4,7 +4,6 @@ const TXActions = RefluxTX.TXActions;
 
 TXList = React.createClass({
   testTx: function() {
-    console.log('web3', web3);
 
     var hash = web3.eth.sendTransaction({ from: web3.eth.coinbase, to: web3.eth.coinbase, value: 1000 });
     console.log('hash', hash);
